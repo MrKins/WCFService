@@ -17,5 +17,13 @@ namespace WCFService
         [OperationContract]
         [WebGet(UriTemplate = "/GetCustomer?customerID={customerID}", ResponseFormat = WebMessageFormat.Json)]
         List<Customer> GetCustomer(string customerID);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetCustomerByJSon?customerID={customerID}", ResponseFormat = WebMessageFormat.Json)]
+        string GetCustomerByJSon(string customerID);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "/SetCustomer?customerName={customerName}&customerAddress={customerAddress}", ResponseFormat = WebMessageFormat.Json)]
+        void SetCustomer(string customerName, string customerAddress);
     }
 }

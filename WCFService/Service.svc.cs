@@ -1,4 +1,5 @@
 ﻿using Mirabeau.MsSql.Library;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -43,6 +44,30 @@ namespace WCFService
             }
 
             return listCustomer;
+        }
+
+        public string GetCustomerByJSon(string customerID)
+        {
+            string CMD = "GetCustomer";
+
+            var parameters = new List<SqlParameter>
+            {
+                customerID.CreateSqlParameter("customerID")
+            };
+
+            DataSet dataSet = DatabaseHelper.ExecuteDataSet(GlobalVar.connectionString, CommandType.StoredProcedure, CMD, parameters);
+
+            return JsonConvert.SerializeObject(dataSet);
+        }
+
+        public void SetCustomer(string customerName, string customerAddress)
+        {
+            string CMD = "SetCustomer";
+
+            var parameters = new List<SqlParameter>
+            { };
+
+            DatabaseHelper.ExecuteNonQuery(GlobalVar.connectionString, CommandType.StoredProcedure, CMD, parameters);
         }
     }
 }
