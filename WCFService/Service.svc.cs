@@ -65,7 +65,10 @@ namespace WCFService
             string CMD = "SetCustomer";
 
             var parameters = new List<SqlParameter>
-            { };
+            {
+                customerName.CreateSqlParameter("customerName"),
+                customerAddress.CreateSqlParameter("customerAddress")
+            };
 
             DatabaseHelper.ExecuteNonQuery(GlobalVar.connectionString, CommandType.StoredProcedure, CMD, parameters);
         }
