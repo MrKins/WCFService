@@ -21,8 +21,9 @@
 <main>
   <article>
     <label id="createProject">新建项目</label>
-    <p>打开VisualStudio新建项目选择"WCF服务应用程序", 自动生成名称为"WcfService1"</p>
-  </article>
+    <p>1.打开VisualStudio新建项目选择"WCF服务应用程序", 自动生成名称为"WcfService1"</p>
+    <p>2.安装两个NuGet包：<i>MsSqlHelper</i>(将自动安装<i>Microsoft.SqlServer.Types</i>)和<i>Newtonsoft.Json</i></p>
+  </article>
   <article>
     <label id="editWCFConfig">编辑WCF配置</label>
     <p>1.右键项目目录的<strong>Web.config</strong>文件，选择<strong>编辑WCF配置</strong></p>
